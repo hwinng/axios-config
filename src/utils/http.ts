@@ -33,13 +33,18 @@ const httpInstance = axios.create({
   baseURL: "https://pokeapi.co/api/v2/pokemon",
 });
 
+// import axios from 'axios'
+
+// axios.defaults.baseURL = 'https://pokeapi.co/api/v2/pokemon';
+// axios.defaults.timeout = '5000'
+
 httpInstance.defaults.headers.common.isLoading = true;
 httpInstance.defaults.headers.common.successAlert = false;
 httpInstance.defaults.headers.common.errorAlert = true;
 Object.setPrototypeOf(httpInstance, axios);
 
-httpInstance.interceptors.request.use(async (config) => {
-  config.headers.Authorization = "secret token";
+httpInstance.interceptors.request.use(function (config) {
+  config.headers.test = "I am only a header!";
   return config;
 });
 
